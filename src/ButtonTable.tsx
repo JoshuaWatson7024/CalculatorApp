@@ -1,16 +1,9 @@
 import { useState } from "react"
 
-export const SwapButton = ({change}: {change: (text: string) => void}): JSX.Element => {
-  const [active, setActive] = useState<boolean>(false);
-
-  const toggle = () => {
-    if (active) {
-      change("FIRST PROMPT");
-    } else {
-      change("SECOND PROMPT");
+export const ButtonTable = ({change}: {change: (text: string) => void}): JSX.Element => {
+    const one = () => {
+        change("1");
     }
-    setActive(!active);
-  }
 
-  return <button onClick={() => toggle()}>Swap Prompt</button>
+  return <button onClick={() => one()}>Swap Prompt</button>
 }
