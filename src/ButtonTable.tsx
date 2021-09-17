@@ -1,7 +1,9 @@
+import { equal } from 'assert';
 import React, { useState } from 'react';
 
-export const ButtonTable = ({change, multiply, disp}: {
+export const ButtonTable = ({change, solve, multiply, disp}: {
         change: (text: string) => void;
+        solve: () => void;
         multiply: () => void;
         disp: string}
      ): JSX.Element => {
@@ -57,7 +59,7 @@ export const ButtonTable = ({change, multiply, disp}: {
                 <button className="numBut" onClick={() => change(disp + "0")}>0</button>
             </td>
             <td>
-                <button className="fxnBut" onClick={() => change("")}>=</button>
+                <button className="fxnBut" onClick={() => solve()}>=</button>
             </td>
             <td>
                 <button className="fxnBut" onClick={() => change(" ")}>+</button>

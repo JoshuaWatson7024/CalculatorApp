@@ -24,7 +24,7 @@ function App(): JSX.Element {
   return (
     <div className="App">
       <Display text={display}></Display>
-      <ButtonTable change={setDisplay} multiply={multiply} disp={display}></ButtonTable>
+      <ButtonTable change={setDisplay} solve = {solve} multiply={multiply} disp={display}></ButtonTable>
 
     </div>
   );
