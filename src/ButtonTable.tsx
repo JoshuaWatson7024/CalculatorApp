@@ -13,6 +13,9 @@ export const ButtonTable = ({change, disp}: {change: (text: string) => void; dis
             <td>
                 <button className="numBut" onClick={() => change(disp + "9")}>9</button>
             </td>
+            <td>
+                <button className="numBut" onClick={() => change("")}>/</button>
+            </td>
         </tr>
         <tr>
             <td>
@@ -24,6 +27,9 @@ export const ButtonTable = ({change, disp}: {change: (text: string) => void; dis
             <td>
                 <button className="numBut" onClick={() => change(disp + "6")}>6</button>
             </td>
+            <td>
+                <button className="numBut" onClick={() => change("")}>X</button>
+            </td>
         </tr>
         <tr>
             <td>
@@ -34,6 +40,23 @@ export const ButtonTable = ({change, disp}: {change: (text: string) => void; dis
             </td>
             <td>
                 <button className="numBut" onClick={() => change(disp + "3")}>3</button>
+            </td>
+            <td>
+                <button className="numBut" onClick={() => change("")}>-</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button className="fxnBut" onClick={() => change("")}>C</button>
+            </td>
+            <td>
+                <button className="numBut" onClick={() => change(disp + "0")}>0</button>
+            </td>
+            <td>
+                <button className="blankBut" onClick={() => change("")}> </button>
+            </td>
+            <td>
+                <button className="fxnBut" onClick={() => change("")}>+</button>
             </td>
         </tr>
     </table>
