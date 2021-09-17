@@ -18,16 +18,16 @@ function App(): JSX.Element {
   function solve(){
     let tempval = parseInt(display, 10);
     if (fxn == "+"){
-      setDisplay((tempval+val).toString());
+      setDisplay((val+tempval).toString());
     }
     if (fxn == "-"){
-      setDisplay((tempval-val).toString());
+      setDisplay((val-tempval).toString());
     }
     if (fxn == "X"){
-      setDisplay((tempval*val).toString());
+      setDisplay((val*tempval).toString());
     }
     if (fxn == "/"){
-      setDisplay((tempval/val).toString());
+      setDisplay((val/tempval).toString());
     }
   }
 
