@@ -4,12 +4,12 @@ import { ButtonTable } from './ButtonTable';
 import { Display } from './Display';
 
 function App(): JSX.Element {
-  const [display, setDisplay] = useState<string>("Do Something!");
+  const [display, setDisplay] = useState<string>(" ");
 
   return (
     <div className="App">
       <Display text={display}></Display>
-      <ButtonTable change={setDisplay}></ButtonTable>
+      <ButtonTable change={setDisplay} disp={display}></ButtonTable>
 
     </div>
   );
