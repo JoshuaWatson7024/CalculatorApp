@@ -5,21 +5,21 @@ import { Display } from './Display';
 
 function App(): JSX.Element {
   const [display, setDisplay] = useState<string>("");
-  let fxn = "";
-  let value = 0;
+  const [fxn, setfxn] = useState<string>("");
+  const [val, setval] = useState<number>(0);
   const fxnClicked = false;
 
   function multiply(){
-    value = parseInt(display, 10);
-    fxn = "X";
+    setval(parseInt(display, 10));
+    setfxn("X")
     setDisplay("")
     }
 
   function solve(){
     let tempval = parseInt(display, 10);
-    console.log(tempval*value)
+    console.log(fxn)
     if (fxn == "X"){
-      setDisplay((tempval*value).toString())
+      setDisplay((tempval*val).toString())
     }
   }
 
