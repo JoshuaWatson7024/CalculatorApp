@@ -4,7 +4,7 @@ import { ButtonTable } from './ButtonTable';
 import { Display } from './Display';
 
 function App(): JSX.Element {
-  const [display, setDisplay] = useState<string>("0");
+  const [display, setDisplay] = useState<string>(" ");
 
   return (
     <div className="App">
