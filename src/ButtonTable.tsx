@@ -1,10 +1,10 @@
 import { equal } from 'assert';
 import React, { useState } from 'react';
 
-export const ButtonTable = ({change, solve, multiply, disp}: {
+export const ButtonTable = ({change, solve, operate, disp}: {
         change: (text: string) => void;
         solve: () => void;
-        multiply: () => void;
+        operate: (operation: string) => void;
         disp: string}
      ): JSX.Element => {
   return (
@@ -20,7 +20,7 @@ export const ButtonTable = ({change, solve, multiply, disp}: {
                 <button className="numBut" onClick={() => change(disp + "9")}>9</button>
             </td>
             <td>
-                <button className="numBut" onClick={() => change("")}>/</button>
+                <button className="numBut" onClick={() => operate("/")}>/</button>
             </td>
         </tr>
         <tr>
@@ -34,7 +34,7 @@ export const ButtonTable = ({change, solve, multiply, disp}: {
                 <button className="numBut" onClick={() => change(disp + "6")}>6</button>
             </td>
             <td>
-                <button className="numBut" onClick={() => multiply()}>X</button>
+                <button className="numBut" onClick={() => operate("X")}>X</button>
             </td>
         </tr>
         <tr>
@@ -48,7 +48,7 @@ export const ButtonTable = ({change, solve, multiply, disp}: {
                 <button className="numBut" onClick={() => change(disp + "3")}>3</button>
             </td>
             <td>
-                <button className="numBut" onClick={() => change("")}>-</button>
+                <button className="fxnBut" onClick={() => operate("-")}>-</button>
             </td>
         </tr>
         <tr>
@@ -62,7 +62,7 @@ export const ButtonTable = ({change, solve, multiply, disp}: {
                 <button className="fxnBut" onClick={() => solve()}>=</button>
             </td>
             <td>
-                <button className="fxnBut" onClick={() => change(" ")}>+</button>
+                <button className="fxnBut" onClick={() => operate("+")}>+</button>
             </td>
         </tr>
     </table>
