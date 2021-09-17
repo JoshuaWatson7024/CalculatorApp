@@ -56,7 +56,7 @@ export const ButtonTable = ({change, disp}: {change: (text: string) => void; dis
                 <button className="blankBut" onClick={() => change("")}> </button>
             </td>
             <td>
-                <button className="fxnBut" onClick={() => change("")}>+</button>
+                <button className="fxnBut" onClick={() => change("0")}>+</button>
             </td>
         </tr>
     </table>
