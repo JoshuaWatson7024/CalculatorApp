@@ -7,7 +7,6 @@ function App(): JSX.Element {
   const [display, setDisplay] = useState<string>("");
   const [fxn, setfxn] = useState<string>("");
   const [val, setval] = useState<number>(0);
-  const fxnClicked = false;
 
   function operate(operation: string){
     setval(parseInt(display, 10));
