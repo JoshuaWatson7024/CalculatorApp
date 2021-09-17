@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
-export const ButtonTable = ({change, disp}: {change: (text: string) => void; disp: string}): JSX.Element => {
+export const ButtonTable = ({change, multiply, disp}: {
+        change: (text: string) => void;
+        multiply: () => void;
+        disp: string}
+     ): JSX.Element => {
   return (
     <table>
         <tr>
@@ -28,7 +32,7 @@ export const ButtonTable = ({change, disp}: {change: (text: string) => void; dis
                 <button className="numBut" onClick={() => change(disp + "6")}>6</button>
             </td>
             <td>
-                <button className="numBut" onClick={() => change("")}>X</button>
+                <button className="numBut" onClick={() => multiply()}>X</button>
             </td>
         </tr>
         <tr>
