@@ -4,7 +4,7 @@ import { ButtonTable } from './ButtonTable';
 import { Display } from './Display';
 
 function App(): JSX.Element {
-  const [display, setDisplay] = useState<string>(" ");
+  const [display, setDisplay] = useState<string>("");
   let fxn = "";
   let value = 0;
   const fxnClicked = false;
@@ -12,10 +12,12 @@ function App(): JSX.Element {
   function multiply(){
     value = parseInt(display, 10);
     fxn = "X";
+    setDisplay("")
     }
 
   function solve(){
     let tempval = parseInt(display, 10);
+    console.log(tempval*value)
     if (fxn == "X"){
       setDisplay((tempval*value).toString())
     }
