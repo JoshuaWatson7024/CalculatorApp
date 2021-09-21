@@ -75,10 +75,19 @@ function App(): JSX.Element {
     setHistory(history.concat([""]));
   }
 
+  const hist = history.map((input, x) => {
+    return (
+        <li key = {input}>
+            <div>{input}</div>
+        </li>
+      );
+  });
+
   return (
     <div className="App">
       <Display text={display}></Display>
       <ButtonTable change={change} clear={clear} solve={solve} operate={operate} disp={display}></ButtonTable>
+      <ol>{hist}</ol>
     </div>
   );
 }
