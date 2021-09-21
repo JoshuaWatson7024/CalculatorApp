@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { TupleType } from 'typescript';
 import './App.css';
 import { ButtonTable } from './ButtonTable';
 import { Display } from './Display';
@@ -9,6 +10,8 @@ function App(): JSX.Element {
   const [val, setval] = useState<number>(0);
   const [operator_solve, setOperator_solve] = useState<boolean>(false);
   let [new_valb, setNew_valb] = useState<boolean>(false);
+  const [history, setHistory] = useState<Array<string>>([]);
+  const [history_i, setHistory_i] = useState<number>(0);
 
   function clear(){
     setDisplay("");
@@ -25,6 +28,8 @@ function App(): JSX.Element {
     else{
       setDisplay(display+digit);
     }
+    console.log(history);
+    setHistory(history.slice(0,history.length-1).concat([display]));
   }
 
   function operate(operation: string){
@@ -40,6 +45,7 @@ function App(): JSX.Element {
     else{
       setval(parseInt(display, 10));
       setOperator_solve(true);
+      setHistory(history.concat([""]));
     }
   }
 
@@ -66,6 +72,7 @@ function App(): JSX.Element {
       setDisplay((tempval).toString());
     }
     setval(tempval);
+    setHistory(history.concat([""]));
   }
 
   return (
