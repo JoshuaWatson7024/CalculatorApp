@@ -8,11 +8,29 @@ function App(): JSX.Element {
   const [fxn, setfxn] = useState<string>("");
   const [val, setval] = useState<number>(0);
   const [operator_solve, setOperator_solve] = useState<boolean>(false);
+  let [new_val, setNew_val] = useState<boolean>(false);
+
+  function clear(){
+    setDisplay("");
+    setval(0);
+    setfxn("");
+    setOperator_solve(false);
+    setNew_val(true);
+  }
+  function change(digit: string){
+    if(new_val){
+      setNew_val(false);
+      setDisplay(digit);
+    }
+    else{
+      setDisplay(display+digit);
+    }
+  }
 
   function operate(operation: string){
     setval(parseInt(display, 10));
     setfxn(operation);
-    setDisplay("");
+    setNew_val(true);
     if (operator_solve){
       solve();
     }
@@ -22,6 +40,7 @@ function App(): JSX.Element {
   }
 
   function solve(){
+    setNew_val(true);
     setOperator_solve(false);
     let tempval = parseInt(display, 10);
     if (fxn == "+"){
@@ -41,8 +60,7 @@ function App(): JSX.Element {
   return (
     <div className="App">
       <Display text={display}></Display>
-      <ButtonTable change={setDisplay} solve = {solve} operate={operate} disp={display}></ButtonTable>
-
+      <ButtonTable change={change} clear={clear} solve={solve} operate={operate} disp={display}></ButtonTable>
     </div>
   );
 }
