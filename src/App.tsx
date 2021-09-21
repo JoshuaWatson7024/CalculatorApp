@@ -7,14 +7,22 @@ function App(): JSX.Element {
   const [display, setDisplay] = useState<string>("");
   const [fxn, setfxn] = useState<string>("");
   const [val, setval] = useState<number>(0);
+  const [operator_solve, setOperator_solve] = useState<boolean>(false);
 
   function operate(operation: string){
     setval(parseInt(display, 10));
     setfxn(operation);
     setDisplay("");
+    if (operator_solve){
+      solve();
     }
+    else{
+      setOperator_solve(true);
+    }
+  }
 
   function solve(){
+    setOperator_solve(false);
     let tempval = parseInt(display, 10);
     if (fxn == "+"){
       setDisplay((val+tempval).toString());
