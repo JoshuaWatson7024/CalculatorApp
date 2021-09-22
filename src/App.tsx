@@ -28,7 +28,11 @@ function App(): JSX.Element {
     setfxn("");
     setOperator_solve(false);
     setNew_valb(true);
-    setHistory(history.concat(["CLEAR", ""]));
+    if (history[history.length-1] == ""){
+      update_history_same_line("CLEAR", false);
+    }
+    else{setHistory(history.concat(["CLEAR", ""]));
+    }
   }
   function update_history_same_line(text: string, remove_dashes: boolean){
     if (remove_dashes){
