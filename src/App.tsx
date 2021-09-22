@@ -128,7 +128,7 @@ function App(): JSX.Element {
     <div className="App">
       <Display text={display}></Display>
       <ButtonTable change={change} clear={clear} solve={solve} operate={operate} disp={display}></ButtonTable>
-      <button onClick = {() => clearHistory()}>Clear History</button>
+      <button className = "clearHist" onClick = {() => clearHistory()}>Clear History</button>
       <ol className = "sidebar">{hist}</ol>
     </div>
   );
