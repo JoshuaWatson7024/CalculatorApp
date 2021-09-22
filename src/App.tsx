@@ -11,7 +11,6 @@ function App(): JSX.Element {
   const [operator_solve, setOperator_solve] = useState<boolean>(false);
   let [new_valb, setNew_valb] = useState<boolean>(false);
   const [history, setHistory] = useState<Array<string>>([]);
-  const [history_i, setHistory_i] = useState<number>(0);
 
   function clear(){
     setDisplay("");
@@ -40,13 +39,13 @@ function App(): JSX.Element {
     }
     setfxn(operation);
     setNew_valb(true);
-    setHistory(history.concat([operation, " "]));
     if (operator_solve){
       solve();
     }
     else{
       setval(parseInt(display, 10));
       setOperator_solve(true);
+      setHistory(history.concat([operation, " "]));
     }
   }
 
@@ -78,7 +77,7 @@ function App(): JSX.Element {
 
   const hist = history.map((input, x) => {
     return (
-        <li key = {input}>
+        <li key = {x}>
             <div>{input}</div>
         </li>
       );
