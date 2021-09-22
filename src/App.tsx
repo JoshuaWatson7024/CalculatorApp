@@ -81,6 +81,7 @@ function App(): JSX.Element {
     setNew_valb(true);
     if (pressed_equals){
       setOperator_solve(false);
+      setHistory(history.concat(["=", tempval.toString(), ""]))
     }
   }
 
