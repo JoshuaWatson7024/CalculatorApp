@@ -14,6 +14,10 @@ function App(): JSX.Element {
   const [history, setHistory] = useState<Array<string>>([]);
 
   function clear(){
+    /*Don't let them click this if no number is entered*/
+    if (display==""){
+      return;
+    }
     setDisplay("");
     setval(0);
     setfxn("");
