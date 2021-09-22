@@ -42,10 +42,19 @@ function App(): JSX.Element {
       );
     }
     else{
-      setHistory(history.slice(0,history.length-1).concat(
-        history.slice(history.length-1, history.length).toString().concat(text)
-        )
-      );
+      if (text == "CLEAR"){
+        setHistory(history.slice(0,history.length-1).concat(
+          history.slice(history.length-1, history.length).toString().concat(text),
+          [""]
+          )
+        );
+      }
+      else{
+        setHistory(history.slice(0,history.length-1).concat(
+          history.slice(history.length-1, history.length).toString().concat(text)
+          )
+        );
+      }
     }
   }
   function change(digit: string){
