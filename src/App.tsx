@@ -29,13 +29,17 @@ function App(): JSX.Element {
     if(new_valb){
       setNew_valb(false);
       setDisplay(digit);
-      setHistory(history.slice(0,history.length-1).concat([digit]));
+      /*setHistory(history.slice(0,history.length-1).concat([digit]));*/
     }
     else{
       setDisplay(display+digit);
-      setHistory(history.slice(0,history.length-1).concat([display+digit]));
+      /*setHistory(history.slice(0,history.length-1).concat([display+digit]));*/
+      
     }
-    
+    setHistory(history.slice(0,history.length-1).concat(
+      history.slice(history.length-1, history.length).toString().concat(digit)
+      )
+    );    
   }
 
   function operate(operation: string){
@@ -51,7 +55,10 @@ function App(): JSX.Element {
     else{
       setval(parseInt(display, 10));
       setOperator_solve(true);
-      setHistory(history.concat([operation, " "]));
+      setHistory(history.slice(0,history.length-1).concat(
+        history.slice(history.length-1, history.length).toString().concat(operation)
+        )
+      );
     }
   }
 
