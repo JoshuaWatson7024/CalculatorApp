@@ -15,11 +15,12 @@ code {
 .sidebar{
   background: rgb(167, 169, 170);
   position: fixed;
-  top: 5%;
+  top: 0%;
   left: 75%;
   width: 25%;
-  height: 95%;
+  height: 100%;
   transition: all 0.5s ease;
+  z-index: -1;
 }
 
 .clearHist{
