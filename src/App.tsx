@@ -25,21 +25,22 @@ function App(): JSX.Element {
     setNew_valb(true);
     setHistory(history.concat(["CLEAR", ""]));
   }
+  function update_history_same_line(text: string){
+    setHistory(history.slice(0,history.length-1).concat(
+      history.slice(history.length-1, history.length).toString().concat(text)
+      )
+    );
+  }
   function change(digit: string){
     if(new_valb){
       setNew_valb(false);
       setDisplay(digit);
-      /*setHistory(history.slice(0,history.length-1).concat([digit]));*/
     }
     else{
       setDisplay(display+digit);
-      /*setHistory(history.slice(0,history.length-1).concat([display+digit]));*/
       
     }
-    setHistory(history.slice(0,history.length-1).concat(
-      history.slice(history.length-1, history.length).toString().concat(digit)
-      )
-    );    
+    update_history_same_line(digit);   
   }
 
   function operate(operation: string){
@@ -55,11 +56,8 @@ function App(): JSX.Element {
     else{
       setval(parseInt(display, 10));
       setOperator_solve(true);
-      setHistory(history.slice(0,history.length-1).concat(
-        history.slice(history.length-1, history.length).toString().concat(operation)
-        )
-      );
     }
+    update_history_same_line(operation);
   }
 
   function solve(pressed_equals: boolean){
