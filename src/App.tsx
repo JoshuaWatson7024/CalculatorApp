@@ -129,7 +129,7 @@ function App(): JSX.Element {
       <Display text={display}></Display>
       <ButtonTable change={change} clear={clear} solve={solve} operate={operate} disp={display}></ButtonTable>
       <button onClick = {() => clearHistory()}>Clear History</button>
-      <ol>{hist}</ol>
+      <ol className = "sidebar">{hist}</ol>
     </div>
   );
 }
