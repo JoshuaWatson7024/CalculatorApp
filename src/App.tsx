@@ -10,6 +10,7 @@ function App(): JSX.Element {
   const [val, setval] = useState<number>(0);
   const [operator_solve, setOperator_solve] = useState<boolean>(false);
   let [new_valb, setNew_valb] = useState<boolean>(false);
+
   const [history, setHistory] = useState<Array<string>>([]);
 
   function clear(){
@@ -41,7 +42,7 @@ function App(): JSX.Element {
     setfxn(operation);
     setNew_valb(true);
     if (operator_solve){
-      solve();
+      solve(false);
     }
     else{
       setval(parseInt(display, 10));
@@ -50,7 +51,7 @@ function App(): JSX.Element {
     }
   }
 
-  function solve(){
+  function solve(pressed_equals: boolean){
     /*Don't let them click this if no number is entered*/
     if (display==""){
       return;
@@ -74,6 +75,9 @@ function App(): JSX.Element {
     }
     setval(tempval);
     setNew_valb(true);
+    if (pressed_equals){
+      setOperator_solve(false);
+    }
   }
 
   const hist = history.map((input, x) => {

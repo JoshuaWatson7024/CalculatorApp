@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 export const ButtonTable = ({change, clear, solve, operate, disp}: {
         change: (text: string) => void;
         clear: () => void;
-        solve: () => void;
+        solve: (pressed_equals: boolean) => void;
         operate: (operation: string) => void;
         disp: string}
      ): JSX.Element => {
@@ -61,7 +61,7 @@ return (
                 <button className="numBut" onClick={() => change("0")}>0</button>
             </td>
             <td>
-                <button className="fxnBut" onClick={() => solve()}>=</button>
+                <button className="fxnBut" onClick={() => solve(true)}>=</button>
             </td>
             <td>
                 <button className="fxnBut" onClick={() => operate("+")}>+</button>
