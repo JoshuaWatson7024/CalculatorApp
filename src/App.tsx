@@ -18,6 +18,7 @@ function App(): JSX.Element {
     setfxn("");
     setOperator_solve(false);
     setNew_valb(true);
+    setHistory(history.concat(["CLEAR", ""]));
   }
   function change(digit: string){
     if(new_valb){
@@ -72,7 +73,7 @@ function App(): JSX.Element {
       setDisplay((tempval).toString());
     }
     setval(tempval);
-    setHistory(history.concat([" "]));
+    setNew_valb(true);
   }
 
   const hist = history.map((input, x) => {
