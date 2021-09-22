@@ -13,6 +13,11 @@ function App(): JSX.Element {
 
   const [history, setHistory] = useState<Array<string>>([]);
 
+  function clearHistory(){
+    clear();
+    setHistory([]);
+  }
+
   function clear(){
     /*Don't let them click this if no number is entered*/
     if (display==""){
@@ -110,6 +115,7 @@ function App(): JSX.Element {
     <div className="App">
       <Display text={display}></Display>
       <ButtonTable change={change} clear={clear} solve={solve} operate={operate} disp={display}></ButtonTable>
+      <button onClick = {() => clearHistory()}>Clear History</button>
       <ol>{hist}</ol>
     </div>
   );
