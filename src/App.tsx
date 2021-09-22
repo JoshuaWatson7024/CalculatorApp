@@ -24,12 +24,13 @@ function App(): JSX.Element {
     if(new_valb){
       setNew_valb(false);
       setDisplay(digit);
+      setHistory(history.slice(0,history.length-1).concat([digit]));
     }
     else{
       setDisplay(display+digit);
+      setHistory(history.slice(0,history.length-1).concat([display+digit]));
     }
-    console.log(history);
-    setHistory(history.slice(0,history.length-1).concat([display]));
+    
   }
 
   function operate(operation: string){
@@ -39,13 +40,13 @@ function App(): JSX.Element {
     }
     setfxn(operation);
     setNew_valb(true);
+    setHistory(history.concat([operation, " "]));
     if (operator_solve){
       solve();
     }
     else{
       setval(parseInt(display, 10));
       setOperator_solve(true);
-      setHistory(history.concat([""]));
     }
   }
 
@@ -72,7 +73,7 @@ function App(): JSX.Element {
       setDisplay((tempval).toString());
     }
     setval(tempval);
-    setHistory(history.concat([""]));
+    setHistory(history.concat([" "]));
   }
 
   const hist = history.map((input, x) => {
