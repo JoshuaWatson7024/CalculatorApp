@@ -25,11 +25,19 @@ function App(): JSX.Element {
     setNew_valb(true);
     setHistory(history.concat(["CLEAR", ""]));
   }
-  function update_history_same_line(text: string){
-    setHistory(history.slice(0,history.length-1).concat(
-      history.slice(history.length-1, history.length).toString().concat(text)
-      )
-    );
+  function update_history_same_line(text: string, remove_dashes: boolean){
+    if (remove_dashes){
+      setHistory(history.slice(0,history.length-2).concat(
+        history.slice(history.length-1, history.length).toString().concat(text)
+        )
+      );
+    }
+    else{
+      setHistory(history.slice(0,history.length-1).concat(
+        history.slice(history.length-1, history.length).toString().concat(text)
+        )
+      );
+    }
   }
   function change(digit: string){
     if(new_valb){
@@ -40,7 +48,7 @@ function App(): JSX.Element {
       setDisplay(display+digit);
       
     }
-    update_history_same_line(digit);   
+    update_history_same_line(digit,false);   
   }
 
   function operate(operation: string){
@@ -57,7 +65,7 @@ function App(): JSX.Element {
       setval(parseInt(display, 10));
       setOperator_solve(true);
     }
-    update_history_same_line(operation);
+    update_history_same_line(operation, (history[history.length-1] == "" && history[history.length-2] == "---------------"));
   }
 
   function solve(pressed_equals: boolean){
