@@ -12,6 +12,7 @@ function App(): JSX.Element {
   let [new_valb, setNew_valb] = useState<boolean>(false);
   let [can_press_fxn, setCan_press_fxn] = useState<boolean>(false);
   const [history, setHistory] = useState<Array<string>>([]);
+  let [can_press_eq, setCan_press_eq] = useState<boolean>(false);
 
   function clearHistory(){
     clear();
@@ -23,6 +24,7 @@ function App(): JSX.Element {
     if (display===""){
       return;
     }
+    setCan_press_eq(false);
     setCan_press_fxn(false);
     setDisplay("");
     setval(0);
@@ -70,7 +72,8 @@ function App(): JSX.Element {
       
     }
     update_history_same_line(digit,false);
-    setCan_press_fxn(true);   
+    setCan_press_fxn(true);
+    setCan_press_eq(true);   
   }
 
   function operate(operation: string){
@@ -89,11 +92,15 @@ function App(): JSX.Element {
     }
     update_history_same_line(operation, (history[history.length-1] == "" && history[history.length-2] == "---------------"));
     setCan_press_fxn(false);
+    setCan_press_eq(false);
   }
 
   function solve(pressed_equals: boolean){
     /*Don't let them click this if not allowed*/
     if (!can_press_fxn){
+      return;
+    }
+    if (pressed_equals && !can_press_eq){
       return;
     }
     setCan_press_fxn(false);
@@ -120,6 +127,7 @@ function App(): JSX.Element {
       setOperator_solve(false);
       setHistory(history.concat(["=", tempval.toString(), "---------------"], ""))
       setCan_press_fxn(true);
+      setCan_press_eq(false);
     }
   }
 
