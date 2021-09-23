@@ -54,6 +54,9 @@ code {
 }
 
 .sidebar{
+  outline-color: rgb(0, 0, 0);
+  outline-style: solid;
+  outline-width: 100%;
   list-style: none;
   background: rgb(167, 169, 170);
   position: fixed;
@@ -67,6 +70,9 @@ code {
 }
 
 .clearHist{
+  outline-color: rgb(0, 0, 0);
+  outline-style: solid;
+  outline-width: 100%;
   font-size: 200%;
   background: rgb(126, 127, 128);
   position: fixed;
