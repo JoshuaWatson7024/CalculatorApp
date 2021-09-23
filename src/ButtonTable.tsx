@@ -1,20 +1,25 @@
 import { equal } from 'assert';
 import React, { useState } from 'react';
 
-export const ButtonTable = ({change, clear, solve, operate, fxn_g, clear_g, disp}: {
+export const ButtonTable = ({change, clear, solve, operate, eq_g, fxn_g, clear_g, disp}: {
         change: (text: string) => void;
         clear: () => void;
         solve: (pressed_equals: boolean) => void;
         operate: (operation: string) => void;
+        eq_g: boolean;
         fxn_g: boolean;
         clear_g: boolean;
         disp: string}
      ): JSX.Element => {
 
         let numbut_fxn: string = "Fxnr";
+        let numbut_eq: string = "Fxnr";
         let numbut_clear: string = "Fxnr";
         if (fxn_g){
             numbut_fxn = "Fxng";
+        }
+        if (eq_g){
+            numbut_eq = "Fxng";
         }
         if (clear_g){
             numbut_clear = "Fxng";
@@ -73,7 +78,7 @@ return (
                 <button className="numBut" onClick={() => change("0")}>0</button>
             </td>
             <td>
-                <button className={numbut_fxn} onClick={() => solve(true)}>=</button>
+                <button className={numbut_eq} onClick={() => solve(true)}>=</button>
             </td>
             <td>
                 <button className={numbut_fxn}  onClick={() => operate("+")}>+</button>
