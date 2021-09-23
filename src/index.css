@@ -29,6 +29,7 @@ code {
 }
 
 .clearHist{
+  font-size: 200%;
   background: rgb(126, 127, 128);
   position: fixed;
   top: 0%;
