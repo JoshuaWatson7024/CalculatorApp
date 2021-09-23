@@ -10,7 +10,7 @@ function App(): JSX.Element {
   const [val, setval] = useState<number>(0);
   const [operator_solve, setOperator_solve] = useState<boolean>(false);
   let [new_valb, setNew_valb] = useState<boolean>(false);
-
+  let [can_press_fxn, setCan_press_fxn] = useState<boolean>(false);
   const [history, setHistory] = useState<Array<string>>([]);
 
   function clearHistory(){
@@ -20,9 +20,10 @@ function App(): JSX.Element {
 
   function clear(){
     /*Don't let them click this if no number is entered*/
-    if (display==""){
+    if (display===""){
       return;
     }
+    setCan_press_fxn(false);
     setDisplay("");
     setval(0);
     setfxn("");
@@ -34,6 +35,7 @@ function App(): JSX.Element {
     else{setHistory(history.concat(["CLEAR", ""]));
     }
   }
+
   function update_history_same_line(text: string, remove_dashes: boolean){
     if (remove_dashes){
       setHistory(history.slice(0,history.length-2).concat(
@@ -57,6 +59,7 @@ function App(): JSX.Element {
       }
     }
   }
+
   function change(digit: string){
     if(new_valb){
       setNew_valb(false);
@@ -66,12 +69,13 @@ function App(): JSX.Element {
       setDisplay(display+digit);
       
     }
-    update_history_same_line(digit,false);   
+    update_history_same_line(digit,false);
+    setCan_press_fxn(true);   
   }
 
   function operate(operation: string){
-    /*Don't let them click this if no number is entered*/
-    if (display==""){
+    /*Don't let them click this if not allowed*/
+    if (!can_press_fxn){
       return;
     }
     setfxn(operation);
@@ -84,13 +88,15 @@ function App(): JSX.Element {
       setOperator_solve(true);
     }
     update_history_same_line(operation, (history[history.length-1] == "" && history[history.length-2] == "---------------"));
+    setCan_press_fxn(false);
   }
 
   function solve(pressed_equals: boolean){
-    /*Don't let them click this if no number is entered*/
-    if (display==""){
+    /*Don't let them click this if not allowed*/
+    if (!can_press_fxn){
       return;
     }
+    setCan_press_fxn(false);
     let tempval = parseInt(display, 10);
     if (fxn == "+"){
       tempval = val + tempval;
@@ -113,6 +119,7 @@ function App(): JSX.Element {
     if (pressed_equals){
       setOperator_solve(false);
       setHistory(history.concat(["=", tempval.toString(), "---------------"], ""))
+      setCan_press_fxn(true);
     }
   }
 
