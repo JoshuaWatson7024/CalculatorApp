@@ -53,7 +53,7 @@ return (
                 <button className="numBut" onClick={() => change("6")}>6</button>
             </td>
             <td>
-                <button className={numbut_fxn}  onClick={() => operate("X")}>X</button>
+                <button className={numbut_fxn}  onClick={() => operate("*")}>*</button>
             </td>
         </tr>
         <tr>

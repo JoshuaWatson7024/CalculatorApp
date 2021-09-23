@@ -113,7 +113,7 @@ function App(): JSX.Element {
       tempval = val - tempval;
       setDisplay((tempval).toString());
     }
-    if (fxn == "X"){
+    if (fxn == "*"){
       tempval = val * tempval;
       setDisplay((tempval).toString());
     }
