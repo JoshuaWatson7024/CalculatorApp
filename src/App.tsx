@@ -134,7 +134,7 @@ function App(): JSX.Element {
   return (
     <div className="App">
       <Display text={display}></Display>
-      <ButtonTable change={change} clear={clear} solve={solve} operate={operate} disp={display}></ButtonTable>
+      <ButtonTable change={change} clear={clear} solve={solve} operate={operate} fxn_g = {can_press_fxn} clear_g={!(display == "")} disp={display}></ButtonTable>
       <button className = "clearHist" onClick = {() => clearHistory()}>Clear History</button>
       <ol className = "sidebar">{hist}</ol>
     </div>

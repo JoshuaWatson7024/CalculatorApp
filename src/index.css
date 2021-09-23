@@ -22,8 +22,18 @@ code {
   font-size: 200%;
 }
 
-.fxnBut{
+.Fxnr{
   background: rgb(180, 52, 43);
+  outline-color: rgb(0, 0, 0);
+  outline-style: solid;
+  outline-width: 100%;
+  width: 100%;
+  height: 100%;
+  font-size: 200%;
+}
+
+.Fxng{
+  background: rgb(43, 180, 89);
   outline-color: rgb(0, 0, 0);
   outline-style: solid;
   outline-width: 100%;

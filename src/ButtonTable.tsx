@@ -1,13 +1,25 @@
 import { equal } from 'assert';
 import React, { useState } from 'react';
 
-export const ButtonTable = ({change, clear, solve, operate, disp}: {
+export const ButtonTable = ({change, clear, solve, operate, fxn_g, clear_g, disp}: {
         change: (text: string) => void;
         clear: () => void;
         solve: (pressed_equals: boolean) => void;
         operate: (operation: string) => void;
+        fxn_g: boolean;
+        clear_g: boolean;
         disp: string}
      ): JSX.Element => {
+
+        let numbut_fxn: string = "Fxnr";
+        let numbut_clear: string = "Fxnr";
+        if (fxn_g){
+            numbut_fxn = "Fxng";
+        }
+        if (clear_g){
+            numbut_clear = "Fxng";
+        }
+
 
 return (
     <table className="buttonTable">
@@ -22,7 +34,7 @@ return (
                 <button className="numBut" onClick={() => change("9")}>9</button>
             </td>
             <td>
-                <button className="fxnBut" onClick={() => operate("/")}>/</button>
+                <button className={numbut_fxn} onClick={() => operate("/")}>/</button>
             </td>
         </tr>
         <tr>
@@ -36,7 +48,7 @@ return (
                 <button className="numBut" onClick={() => change("6")}>6</button>
             </td>
             <td>
-                <button className="fxnBut" onClick={() => operate("X")}>X</button>
+                <button className={numbut_fxn}  onClick={() => operate("X")}>X</button>
             </td>
         </tr>
         <tr>
@@ -50,21 +62,21 @@ return (
                 <button className="numBut" onClick={() => change("3")}>3</button>
             </td>
             <td>
-                <button className="fxnBut" onClick={() => operate("-")}>-</button>
+                <button className={numbut_fxn}  onClick={() => operate("-")}>-</button>
             </td>
         </tr>
         <tr>
             <td>
-                <button className="fxnBut" onClick={() => clear()}>C</button>
+                <button className={numbut_clear}  onClick={() => clear()}>C</button>
             </td>
             <td>
                 <button className="numBut" onClick={() => change("0")}>0</button>
             </td>
             <td>
-                <button className="fxnBut" onClick={() => solve(true)}>=</button>
+                <button className={numbut_fxn} onClick={() => solve(true)}>=</button>
             </td>
             <td>
-                <button className="fxnBut" onClick={() => operate("+")}>+</button>
+                <button className={numbut_fxn}  onClick={() => operate("+")}>+</button>
             </td>
         </tr>
     </table>
