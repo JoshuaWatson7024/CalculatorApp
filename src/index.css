@@ -54,6 +54,7 @@ code {
 }
 
 .sidebar{
+  list-style: none;
   background: rgb(167, 169, 170);
   position: fixed;
   top: 0%;
