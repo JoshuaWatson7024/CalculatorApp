@@ -10,7 +10,7 @@ export const ButtonTable = ({change, clear, solve, operate, disp}: {
      ): JSX.Element => {
 
 return (
-    <table>
+    <table className="buttonTable">
         <tr>
             <td>
                 <button className="numBut" onClick={() => change("7")}>7</button>
