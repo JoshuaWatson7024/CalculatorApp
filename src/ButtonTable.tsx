@@ -22,7 +22,7 @@ return (
                 <button className="numBut" onClick={() => change("9")}>9</button>
             </td>
             <td>
-                <button className="numBut" onClick={() => operate("/")}>/</button>
+                <button className="fxnBut" onClick={() => operate("/")}>/</button>
             </td>
         </tr>
         <tr>
@@ -36,7 +36,7 @@ return (
                 <button className="numBut" onClick={() => change("6")}>6</button>
             </td>
             <td>
-                <button className="numBut" onClick={() => operate("X")}>X</button>
+                <button className="fxnBut" onClick={() => operate("X")}>X</button>
             </td>
         </tr>
         <tr>

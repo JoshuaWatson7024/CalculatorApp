@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.numBut{
+  background: rgb(43, 180, 89)
+}
+
 .sidebar{
   background: rgb(167, 169, 170);
   position: fixed;
@@ -19,6 +23,7 @@ code {
   left: 75%;
   width: 25%;
   height: 100%;
+  padding-top: 5%;
   transition: all 0.5s ease;
   z-index: -1;
 }
